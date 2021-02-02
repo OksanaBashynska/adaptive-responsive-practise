@@ -1,19 +1,13 @@
 .page-header {
   position: relative;
-  display: flex;
-  justify-content: space-between;
-
-  font-weight: 500;
-  line-height: getFont("base-line-height");
-  letter-spacing: 0.02em;
-  color: getColor("title");
 
   &__container {
-    @include bordered(#ececec);
-  }
-
-  &__navigation {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    height: 60px;
+    border-bottom: 1px solid #ececec;
   }
 
   &__menu-button {
@@ -23,13 +17,17 @@
     border: none;
     background-color: transparent;
 
-    &--is-open &__icon-cross {
+    & .page-header__icon-cross {
+      display: none;
+    }
+
+    &.is-open .page-header__icon-cross {
       display: block;
     }
-  }
 
-  &__icon-cross {
-    display: none;
+    &.is-open .page-header__icon-menu {
+      display: none;
+    }
   }
 
   &__menu-container {
@@ -40,96 +38,112 @@
     background-color: white;
     text-align: center;
   }
-
-  &__item:not(:last-child) {
-    margin-right: 50px;
-  }
-
-  &__link {
-    display: block;
-    padding-top: 32px;
-    padding-bottom: 32px;
-
-    color: getColor("title");
-
-    @include transition(color);
-
-    &:hover,
-    &:focus {
-      color: getColor("accent");
-    }
-  }
-
-  &__link--current {
-    position: relative;
-    display: block;
-    padding-top: 32px;
-    padding-bottom: 32px;
-
-    color: getColor("accent");
-
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background-color: getColor("accent");
-      border-radius: 2px;
-    }
-  }
-
-  &__contacts {
-    display: flex;
-    align-items: center;
-  }
-
-  &__contacts-item {
-    display: inline-flex;
-    margin-left: 50px;
-
-    &:first-child {
-      margin-left: 0;
-    }
-  }
-
-  &__contacts-link {
-    display: inline-flex;
-    padding-top: 32px;
-    padding-bottom: 32px;
-    justify-content: center;
-
-    align-items: center;
-    color: getColor("primary");
-
-    @include transition(color);
-
-    &:hover,
-    &:focus {
-      color: getColor("accent");
-    }
-  }
-
-  &__contacts-icon {
-    margin-right: 10px;
-    fill: currentColor;
-
-    &--mail {
-      width: 16px;
-      height: 12px;
-    }
-    &--phone {
-      width: 10px;
-      height: 16px;
-    }
+}
+@media screen and (max-width: 767px) {
+  .nav-container {
+    display: none;
   }
 }
 
-.nav-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+// .page-header {
+//  font-weight: 500;
+//  line-height: getFont("base-line-height");
+//  letter-spacing: 0.02em;
+//  color: getColor("title");
 
-  width: 100%;
-}
+//  &__navigation {
+//    display: flex;
+
+//
+
+//  &__item:not(:last-child) {
+//    margin-right: 50px;
+//  }
+
+//  &__link {
+//    display: block;
+//    padding-top: 32px;
+//    padding-bottom: 32px;
+
+//    color: getColor("title");
+
+//    @include transition(color);
+
+//    &:hover,
+//    &:focus {
+//      color: getColor("accent");
+//    }
+//  }
+
+//  &__link--current {
+//    position: relative;
+//    display: block;
+//    padding-top: 32px;
+//    padding-bottom: 32px;
+
+//   color: getColor("accent");
+
+//    &::after {
+//      content: "";
+//      position: absolute;
+//      bottom: 0;
+//      left: 0;
+//      width: 100%;
+//      height: 4px;
+//      background-color: getColor("accent");
+//      border-radius: 2px;
+//    }
+//  }
+
+//  &__contacts {
+//   display: flex;
+//    align-items: center;
+//  }
+
+//  &__contacts-item {
+//    display: inline-flex;
+//    margin-left: 50px;
+
+//    &:first-child {
+//      margin-left: 0;
+//    }
+//  }
+
+// &__contacts-link {
+//    display: inline-flex;
+//    padding-top: 32px;
+//    padding-bottom: 32px;
+//    justify-content: center;
+
+//   align-items: center;
+//   color: getColor("primary");
+
+//    @include transition(color);
+
+//    &:hover,
+//   &:focus {
+//      color: getColor("accent");
+//    }
+//  }
+
+//  &__contacts-icon {
+//    margin-right: 10px;
+//    fill: currentColor;
+
+//    &--mail {
+//      width: 16px;
+//      height: 12px;
+//    }
+//    &--phone {
+//     width: 10px;
+//      height: 16px;
+//    }
+//  }
+
+//.nav-container {
+//  display: flex;
+//  align-items: center;
+//  justify-content: space-between;
+
+//  width: 100%;
+//}
