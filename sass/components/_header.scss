@@ -1,7 +1,6 @@
 .page-header {
-  position: relative;
-
   &__container {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -17,6 +16,10 @@
     border: none;
     background-color: transparent;
 
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
+
     & .page-header__icon-cross {
       display: none;
     }
@@ -31,17 +34,22 @@
   }
 
   &__menu-container {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
     background-color: white;
     text-align: center;
-  }
-}
-@media screen and (max-width: 767px) {
-  .nav-container {
-    display: none;
+
+    &.is-open {
+      display: block;
+    }
+
+    @media screen and (max-width: 767px) {
+      display: none;
+
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: 796px;
+    }
   }
 }
 
@@ -140,7 +148,7 @@
 //    }
 //  }
 
-//.nav-container {
+//.nav-container { (стал хедер__меню-контейнер)
 //  display: flex;
 //  align-items: center;
 //  justify-content: space-between;
